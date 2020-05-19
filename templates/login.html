@@ -1,0 +1,39 @@
+<!-- 登录 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta content="email=no" name="format-detection" />
+
+	<title>用户登录</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/login.css"/>
+	<script type="text/javascript" src="../js/login.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<h1>私人车位共享平台</h1>
+		<div class="unit">
+			<span class="user-box">用户</span>
+			<span class="property-box">物业</span>
+		</div>
+		<form id="login">
+			<input class="line-inform" type="text" name="username" placeholder="请输入用户名">
+			<input class="line-inform" type="password" name="userpass" placeholder="请输入密码">	
+			<div class="role-choose">
+			角色：<input type="radio" name="role" value="carowner" checked>车主
+				<input type="radio" name="role" value="addowner">业主	
+			</div>
+			<div>
+				<button type="submit" value="submit">登录</button>
+				<a class="register-a" href="#">注册</a>
+			</div>
+		</form>
+		<p class="mine">by Totoro</p>
+	</div>
+	
+</body>
+</html>

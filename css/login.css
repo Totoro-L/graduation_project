@@ -1,0 +1,64 @@
+/* 登录 */
+html,body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+}
+.wrapper{
+	width: 100%;
+	height: 100%;
+	display: -webkit-flex; /* Safari */
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	align-items: center;
+  	background-image: linear-gradient(#72EDF2, #1D6FA3);
+  	color: #FFFFFF;
+ }
+h1{
+	margin-bottom: 2em;
+}
+.unit{
+	margin-left: -14em;
+}
+span{
+	border: 1px solid #FFFFFF;
+	border-bottom: none;
+	padding: 2px;
+	font-size: 1.2em;
+	border-radius: 5px 5px 0 0;
+}
+form{
+	padding: 1em;
+	margin-bottom: 7em;
+	font-size: 1.1em;
+	text-align: center;
+	border: 1px solid #FFFFFF;
+}
+input{
+	color: white;
+	border: 1px solid #FFFFFF;
+	border-radius: 25px;
+	background-color: rgba(0,0,0,0);
+	margin: 1em auto;
+}
+.line-inform{
+	display: block;
+	width: 20em;
+	height: 2em;
+	padding-left: 1em;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+	color: #FFFFFF;
+	font-size: 1.2em;
+}
+button{
+	height: 2em;
+	width: 5em;
+	font-size: 1.2em;
+	background-color: #FFFFFF;
+	border: none;
+	border-radius: 5px;
+}

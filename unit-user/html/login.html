@@ -1,0 +1,36 @@
+<!-- 用户登录 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+	<title>用户登录</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/login.css"/>
+	<script type="text/javascript" src="js/login.js"></script>
+</head>
+<body>
+	<h1>私人车位共享平台</h1>
+	<form id="login">
+		<p class="user-inform">
+			<img width="50rem" height="50rem" src="../../images/user.png"/>
+			<input type="text" name="username" placeholder="请输入用户名">	
+		</p>
+		<p class="user-inform">
+			<img width="50px" height="50px" src="../../images/pass.png"/>
+			<input type="password" name="userpass" placeholder="请输入密码">	
+		</p>
+		<p>
+		角色：<input type="radio" name="role" value="carowner">车主
+			<input type="radio" name="role" value="addowner">业主	
+		</p>
+		<p>
+			<button type="submit" value="submit">登录</button>
+			<a href="#">注册</a>
+		</p>
+	</form>
+	by Totoro
+</body>
+</html>
