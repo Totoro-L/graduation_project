@@ -21,27 +21,32 @@ h1{
 	margin-bottom: 2em;
 }
 .unit{
-	margin-left: -14em;
+	margin-left: -10.5em;
+	color: #656565;
 }
 span{
-	border: 1px solid #FFFFFF;
-	border-bottom: none;
-	padding: 2px;
-	font-size: 1.2em;
+	display: inline-block;
+	text-align: center;
+	line-height: 2em;
+	width: 4em;
+	height: 2em;
+	font-size: 1.1em;
 	border-radius: 5px 5px 0 0;
+	background-color: #F5F3F3;
+	margin-bottom: -5px;
 }
 form{
-	padding: 1em;
-	margin-bottom: 7em;
-	font-size: 1.1em;
+	padding: 2em 1em;
+	margin-bottom: 6em;
+	font-size: 1em;
 	text-align: center;
-	border: 1px solid #FFFFFF;
+	background-color: #FFFFFF;
+	color: #656565;
+	border-top: 5px solid #1D6FA3;
 }
 input{
-	color: white;
-	border: 1px solid #FFFFFF;
+	border: 1px solid #656565;
 	border-radius: 25px;
-	background-color: rgba(0,0,0,0);
 	margin: 1em auto;
 }
 .line-inform{
@@ -51,14 +56,22 @@ input{
 	padding-left: 1em;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-	color: #FFFFFF;
 	font-size: 1.2em;
 }
 button{
 	height: 2em;
 	width: 5em;
-	font-size: 1.2em;
-	background-color: #FFFFFF;
+	font-size: 1em;
+	background-color: #1D6FA3;
 	border: none;
 	border-radius: 5px;
+	color: #FFFFFF;
+}
+.login-btn{
+	margin-top: 1em;
+}
+/*选项卡*/
+.active{
+	background-color: #1D6FA3;
+	color: #FFFFFF;
 }

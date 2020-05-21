@@ -1,0 +1,43 @@
+/*用户注册*/
+html,body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+}
+.wrapper{
+	width: 100%;
+	height: 100%;
+	display: -webkit-flex; /* Safari */
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	background-image: linear-gradient(#72EDF2, #1D6FA3);
+  	color: #FFFFFF;
+ }
+ .img-box{
+ 	margin: 3em auto 1.5em auto;
+ }
+ .line-inform{
+	display: block;
+	width: 20em;
+	height: 2em;
+	padding-left: 1em;
+	margin-top: 0.5em;
+}
+ .img-box, .regis-btn{
+ 	text-align: center;
+ }
+ button{
+	font-size: 1em;
+	background-color: #FAFE78;
+	border: none;
+	color: #656363;
+	padding: 0.5em 4em;
+	display: inline-block;
+	margin: 1.2em 0;
+}
+#return-login{
+	color: #FFFFFF;
+}

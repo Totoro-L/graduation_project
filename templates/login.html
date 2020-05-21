@@ -11,6 +11,7 @@
 	<title>用户登录</title>
 
 	<link type="text/css" rel="stylesheet" href="../css/login.css"/>
+	<script type="text/javascript" src="../js/utils/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="../js/login.js"></script>
 </head>
 <body>
@@ -21,19 +22,18 @@
 			<span class="property-box">物业</span>
 		</div>
 		<form id="login">
-			<input class="line-inform" type="text" name="username" placeholder="请输入用户名">
-			<input class="line-inform" type="password" name="userpass" placeholder="请输入密码">	
+			<input id="user-name" class="line-inform" type="text" name="userName" placeholder="请输入用户名">
+			<input id="user-pass" class="line-inform" type="password" name="passWord" placeholder="请输入密码">	
 			<div class="role-choose">
-			角色：<input type="radio" name="role" value="carowner" checked>车主
-				<input type="radio" name="role" value="addowner">业主	
+			角色：<input type="radio" name="userRole" value="2">车主
+				<input type="radio" name="userRole" value="1">业主	
 			</div>
-			<div>
-				<button type="submit" value="submit">登录</button>
-				<a class="register-a" href="#">注册</a>
+			<div class="login-btn">
+				<button id="login-click" type="button" value="submit">登录</button>
+				<a id="register-a" href="user-temp/register.html">注册</a>
 			</div>
 		</form>
 		<p class="mine">by Totoro</p>
 	</div>
-	
 </body>
 </html>
