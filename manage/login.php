@@ -22,8 +22,8 @@
       $ret = "3";
     }
     else{
-      // $_SESSION['username'] = $username;
-      // $_SESSION['userid'] = $result['ad_id'];
+      $_SESSION['username'] = $username;
+      $_SESSION['userid'] = $result['ad_id'];
       $ret = "0";
     }
   } else {
