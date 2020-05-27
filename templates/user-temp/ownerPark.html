@@ -1,0 +1,84 @@
+<!-- 车主预约 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta content="email=no" name="format-detection" />
+
+	<title>业主车位</title>
+
+	<link type="text/css" rel="stylesheet" href="../../css/user-css/ownerPark.css"/>
+
+	<script type="text/javascript" src="../../js/utils/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../../js/user-js/ownerPark.js"></script>
+	
+</head>
+<body>
+	<div class="wrapper">
+		<h1>我的车位</h1>
+		<!-- 顶部选项 -->
+		<ul id="appoint-option1">
+			<!-- <li id="top-navi" value="navi">距离最近</li>
+			<li id="top-price" value="price">价格最低</li>
+			<li id="top-choose" value="choose"><img src="../../images/choose.png">筛选</li> -->
+		</ul>
+		<!-- 右侧筛选框 -->
+		<div class="right-choose">
+			<div class="right-time">
+				<label>开始时间：</label>
+				<input id="begin-time" type="text" class="demo_datetime" />
+			</div>
+			<div class="right-time">
+				<label>结束时间：</label>
+				<input id="end-time" type="text" class="demo_datetime" />
+			</div>
+			<div id="right-btn">
+				<button id="right-btn1" type="button">重置</button>
+				<button id="right-btn2" type="button">确定</button>
+			</div>
+			
+		</div>
+		<!-- 车位列表 -->
+		<ul id="appoint-show1">
+			<!-- <p class="loading-p"><img class="loading-img" src="../../images/loading.gif"></p>
+			<p class="loading-txt">加载中，请稍后......</p> -->
+		</ul>
+		<div class="seat"></div>
+		<img id="add-park" src="../../images/add-park.png">
+		<!-- 底部导航 -->
+		<ul id="appoint-nav1">
+			<li id="appoint-btn">
+				<img src="../../images/park-active.png" class="nav1-img"><br>
+			车位</li>
+			<li id="order-btn">
+				<img src="../../images/order.png" class="nav1-img"><br>
+			订单</li>
+			<li id="user-btn">
+				<img src="../../images/user.png" class="nav1-img"><br>
+			我的</li>
+		</ul>
+		<!-- 订单详情 -->
+		<div class="model"></div>
+		<div id="appoint-del">
+			<img class="del-img" src="../../images/error.png">
+			<h2 class="del-title">预约详情</h2>
+			<ul class="del-show">
+				<div class="del-read"></div>
+				<li id="del-begin">开始时间：
+					<input id="appoint-begin" type="text" class="demo_datetime" />
+				</li>
+				<li id="del-end">结束时间：
+					<input id="appoint-end" type="text" class="demo_datetime" />
+				</li>
+				<li id="del-btn">
+					<button id="appoint-click" type="button" value="confirm">确认下单</button>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</body>
+</html>

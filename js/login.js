@@ -33,16 +33,39 @@ $(document).ready(function(){
 	$("#login-click").click(function(){
 		var regUser =/^[\da-zA-Z_\u4e00-\u9f5a]{4,10}$/;   //用户名，4-10位，中文、字母、数字和下划线组成
 		var regPass =/^\w{6,10}$/;  //密码，6-10位，字母、数字、下划线组成
+		if(userRole != 0){
+			userRole = $('input:radio:checked').val();
+		}
 		if(dataCheck(regUser, "#user-name") && dataCheck(regPass, "#user-pass") ){   //用户名密码验证
 			var data = {
 				"userName" : $("#user-name").val(),
 				"passWord" : $("#user-pass").val(),
-				"userRole" : $('input:radio:checked').val()
+				"userRole" : userRole
 			}
-			// console.log(data);
+			console.log(data);
 			var url = "../manage/login.php";
 			var ret = ajaxJSON(url, data);
-			console.log(ret);
+			if(ret.return == 1){
+				alert('用户名或密码错误');
+			}
+			else if(ret.return == 2){
+				alert('请切换至物业登录');
+			}
+			else if(ret.return == 3){
+				alert('请切换至用户登录');
+			}
+			else if(ret.return == 0){
+				alert('登录成功');
+				if(userRole == 2){
+					window.location.href = "http://www.park.com/templates/user-temp/carAppoint.html";
+				}
+				else{
+					window.location.href = "http://www.park.com/templates/user-temp/ownerPark.html";
+				}
+			}
+			else{
+				alert('bug');
+			}
 		}   
 		else{
 			alert("输入格式错误");

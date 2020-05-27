@@ -31,12 +31,13 @@ html,body{
  }
  button{
 	font-size: 1em;
-	background-color: #FAFE78;
+	background-color: #F6F4F4;
 	border: none;
-	color: #656363;
+	color: #000000;
 	padding: 0.5em 4em;
 	display: inline-block;
 	margin: 1.2em 0;
+	border-radius: 0.5em;
 }
 #return-login{
 	color: #FFFFFF;

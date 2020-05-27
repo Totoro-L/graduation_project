@@ -1,0 +1,264 @@
+/*车主预约*/
+html,body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+}
+.wrapper{
+	color: #656565;
+	text-align: center;
+}
+ul{
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+li{
+	display: inline-block;
+}
+h1{
+	position: fixed;
+	top: 0;
+	color: #1389BC;
+	margin: 0 auto;
+	font-size: 1.5em;
+	width: 100%;
+	height: 2.5em;
+	line-height: 2.5em;
+	background-color: #ffffff;
+	z-index: 2;
+}
+.demo_datetime{
+	width: 10em;
+	border: 1px solid #656565;
+}
+
+#appoint-option1{
+	display: flex;
+	align-items: center;
+	height: 2.5em;
+	background-color: #FAF8F8;
+	z-index: 2;
+}
+#appoint-option1{
+	position: fixed;
+	top: 3.5em;
+}
+#appoint-option1 li{
+	flex: auto;
+	border-left: 1px solid #cccccc;
+}
+#appoint-option1 li:first-child{
+	border-left: none;
+}
+#top-choose img{
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+
+#appoint-show1{
+	margin-top: 6em;
+}
+#appoint-show1 li{
+	width: 100%;
+	height: 8em;
+	border-bottom: 1px solid #cccccc;
+}
+.right-div{
+	font-size: 1em;
+}
+.show-navi, .show-price{
+	float: right;
+	margin-right: 5%;
+}
+.show-navi{
+  	margin-top: -5.5em;
+}
+.show-price{
+  	margin-top: -4.2em;
+}
+.show-detail, .show-title{
+	margin-left: 5%;
+	text-align: left;
+}
+.show-detail{
+	font-size: 0.5em;
+	margin-top: -1em;
+	color: #027DB4;
+}
+.show-title{
+	margin-top: 1.5em;
+	width: 70%; 
+	height: 2.5em;
+	color: #000000;
+	text-overflow: -o-ellipsis-lastline;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	display: -webkit-box;
+  	-webkit-line-clamp: 2;
+  	line-clamp: 2;
+  	-webkit-box-orient: vertical;
+}
+
+
+#appoint-nav1{
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	border-top: 1px solid #656565;
+}
+#appoint-nav1 li{
+	height: 4em;
+	flex: auto;
+	font-size: 0.8em;
+	padding-top: 0.5em;
+	padding-bottom: 0.1em;
+}
+#order-btn, #user-btn{
+	background-color: #ffffff;
+}
+#appoint-btn{
+	background-color: #1389BC;
+	color: #ffffff;
+}
+.nav1-img{
+	width: 2.1em;
+	height: 2.1em;
+}
+.seat{
+	height: 4em;
+}
+
+.right-choose{
+	position: fixed;
+	top: 6em;
+	right: 0em;
+	background-color: #ffffff;
+	z-index: 100;
+	font-size: 1em;
+	height: 15em;
+	width: 18em;
+	padding-top: 1em;
+	display: none;
+}
+.right-move{
+	animation : rightMove 1s;
+	-webkit-animation : rightMove 1s; /* Safari and Chrome */
+}
+.right-time{
+	margin: 2em auto;
+}
+#right-btn button{
+	border: none;
+	margin: 2em;
+	padding: 0.5em 2em;
+	border-radius: 0.5em;
+	background-color: #1389BC;
+	color: #ffffff;
+}
+@keyframes rightMove
+{
+	from {right : -18em;}
+	to {right : 0em;}
+}
+@-webkit-keyframes rightMove /* Safari and Chrome */
+{
+	from {right : -18em;}
+	to {right : 0em;}
+}
+/*选中*/
+.active{
+	color: #027DB4;
+}
+.model{
+    background: black;
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    opacity: 0.4;
+    display: none;
+    z-index: 99;
+}
+#appoint-del{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: #ffffff;
+	text-align: left;
+	display: none;
+	z-index: 100;
+}
+.del-img{
+	width: 1.5em;
+	height: 1.5em;
+	float: right;
+	margin: 1em 1em auto auto;
+}
+.del-title{
+	text-align: center;
+	margin-left: 1.5em;
+}
+.del-show{
+	margin: 0 auto;
+	width: 90%;
+}
+.del-show li{
+	display: block;
+	margin-bottom: 1.8em;
+}
+.del-show li:first-child{
+	margin-top: 1.5em;
+}
+.del-show span{
+	color: #015478;
+}
+.del-show button{
+	background-color: #015478;
+	border: none;
+	color: #ffffff;
+	border-radius: 0.5em;
+}
+.appoint-choose{
+	padding: 0.5em 0.5em;
+	font-size: 0.9em;
+}
+#appoint-click{
+	padding: 0.5em 1em;
+	width: 90%;
+	font-size: 1em;
+}
+#del-btn{
+	text-align: center;
+}
+.bottom-move{
+	animation : bottomMove 1s;
+	-webkit-animation : bottomMove 1s; /* Safari and Chrome */
+}
+@keyframes bottomMove
+{
+	from {bottom : -100%;}
+	to {bottom : 0em;}
+}
+@-webkit-keyframes bottomMove /* Safari and Chrome */
+{
+	from {bottom : -100%;}
+	to {bottom : 0em;}
+}
+
+
+.loading-p,.loading-txt{
+	position: relative;
+	top: 6em;
+}
+.loading-img{
+	width: 7em;
+	height: 7em;
+}

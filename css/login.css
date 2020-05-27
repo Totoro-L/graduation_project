@@ -75,3 +75,28 @@ button{
 	background-color: #1D6FA3;
 	color: #FFFFFF;
 }
+
+@media screen and (max-width: 600px) {
+	h1,.mine{
+		margin: 1em auto;
+	}
+	.unit{
+		margin-left: -40%;
+	}
+    form{
+		width: 75%;
+		padding: 2em 1em;
+		margin-bottom: 20%;
+		font-size: 1em;
+		text-align: center;
+		background-color: #FFFFFF;
+		color: #656565;
+		border-top: 5px solid #1D6FA3;
+	}
+	.line-inform{
+		width: 90%;
+	}
+	.mine{
+		text-align: center;
+	}
+}
