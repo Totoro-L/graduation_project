@@ -39,27 +39,4 @@ function ajaxForm(url, formdata){
     });
     return ret;
 }
-//前后端交互，ajaxJSON轮询（url:php地址，data：传递的json；返回JSON对象）
-function ajaxPolling(url, data){
-    var ret = "result none!";
-    var getting = {
-        type: "POST",  //数据提交方式（post/get）
-        url: url,  //提交到的url
-        data: data,//提交的数据
-        dataType: "json",//返回的数据类型格式
-        async: false,
-        success : function(result) {
-            result = JSON.stringify(result);
-            ret = JSON.parse(result);
 
-            $.ajax(getting); //关键在这里，回调函数内再次请求Ajax
-
-        },        
-        //当请求时间过长（默认为60秒），就再次调用ajax长轮询
-        error:function(XMLHttpRequest, textStatus, errorThrown){
-            var errorRet = 'XMLHttpRequest.status：' + XMLHttpRequest.status + '\nXMLHttpRequest.readyState：' + XMLHttpRequest.readyState + '\ntextStatus：' + textStatus;
-            console.log(errorRet);
-        }
-    }
-    return ret;
-};

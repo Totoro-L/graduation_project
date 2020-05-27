@@ -30,17 +30,30 @@ function orderGetData(act,stat){
             	var appointGet = $.grep(dataJSON, function(n,i){
 					return n.id == stat;
 				});
+				//已完成
 				if(appointGet[0].orderSta == 2){
 					orderGoData(appointGet[0],1);
 				}
+				//已取消
 				else if(appointGet[0].orderSta == 3){
 					orderGoData(appointGet[0],2);
 				}
+				//未完成
 				else{
 					orderGoData(appointGet[0],0);
 					var orderJsonGo = JSON.stringify(appointGet[0], null, 4);
 					console.log(orderJsonGo);
 					outputQRCod(orderJsonGo, 100, 100);
+					if(appointGet[0].orderSta != 0){
+						$("#del-getin").show();
+						$("#order-none").hide();
+						$("#park-navi").hide();
+					}
+					else{
+						$("#del-getin").hide();
+						$("#order-none").show();
+						$("#park-navi").show();
+					}
 				}
             }
             //全部
@@ -65,9 +78,9 @@ function orderGetData(act,stat){
         }
     });
 }
-//顶部选项
+var timer = null;
+//功能
 function downOrder(){
-	var timer = null;
 	//一级选项点击
 	$("#order-option li").click(function(){
 		window.scrollTo(0,0);
@@ -111,13 +124,69 @@ function downOrder(){
 	//订单详情
 	$("#order-show").on("click",".show-li",function(){
 		var chooseId = $(this).attr("value");
-		clearInterval(timer);
 		orderGetData(2,chooseId);
-		//车库平面图
-		$(".del-show").on("click","#park-photo",function(){
-			model(1);
-			
+		orderDelFunc(chooseId);
+
+	});
+}
+//订单详情功能
+function orderDelFunc(chooseId){
+	clearInterval(timer);
+	//车库平面图
+	$(".del-show").on("click","#park-photo",function(){
+		model(1);
+		var orderJSON = {
+			"id" : chooseId,
+			"act" : 0
+		}
+		var url = "../../manage/user-manage/carOrderCheck.php";
+		var returnJSON = ajaxJSON(url, orderJSON);
+		var parkingPhoto = '<img class=\"order-park-photo\" src=\"'+returnJSON.garagePhoto+'\">';
+		$(".model").html(parkingPhoto);
+	});
+	// 取消订单
+	$(".del-show").on("click","#order-none",function(){
+		model(1);
+		var sureContent = '<div class=\"sure-del\">'+
+						'<div class=\"sure-an\">确认取消订单？</div>'+
+						'<div class=\"sure-btn\">'+
+							'<button id=\"sure-back\">返回</button>'+
+							'<button id=\"sure-yes\">确定</button>'+
+						'</div>'+
+					'</div>';
+		$(".model").html(sureContent);
+		$("#sure-back").click(function(){
+			model(0);
 		});
+		$("#sure-yes").click(function(){
+			var orderJSON = {
+				"id" : chooseId,
+				"act" : 1
+			}
+			var url = "../../manage/user-manage/carOrderCheck.php";
+			var returnJSON = ajaxJSON(url, orderJSON);
+			$(".del-img").click();
+		});
+	});
+	//导航
+	$(".del-show").on("click","#park-navi",function(){
+		var geolocation = new qq.maps.Geolocation("XPKBZ-PRTLD-A574B-PBIOL-SL2HF-DQFYO", "myapp");
+		function showPosition(position) {
+		    var lat = position.lat;        
+		    var lon = position.lng;
+
+		    var orderJSON = {
+				"id" : chooseId,
+				"act" : 2
+			}
+			var url = "../../manage/user-manage/carOrderCheck.php";
+			var returnJSON = ajaxJSON(url, orderJSON);
+		    location.href = "https://apis.map.qq.com/uri/v1/routeplan?type=drive&from=起点&fromcoord="+lat+","+lon+"&to=终点&tocoord="+returnJSON.latitude+","+returnJSON.longitude+"&policy=1&referer=XPKBZ-PRTLD-A574B-PBIOL-SL2HF-DQFYO";
+		}
+		function showErr() {
+		    console.log("定位失败");
+		};
+    	geolocation.getLocation(showPosition, showErr);
 	});
 }
 
@@ -125,18 +194,18 @@ $(document).ready(function(){
 	window.scrollTo(0,0);
 	bottomClick();
 
-	//顶部选项
+	//功能
 	downOrder();
 	$("#top-all").click();
 	//预约页面跳转过来
 	if(sessionStorage.getItem("orderJSON") != null){
-		console.log(sessionStorage.getItem("orderJSON")); 
 		var orderJsonGo = JSON.parse(sessionStorage.getItem("orderJSON"));
 		var orderJsonStr = sessionStorage.getItem("orderJSON");
 		orderGoData(orderJsonGo,0);
 		outputQRCod(orderJsonStr, 100, 100);
 		$("#order-del").show();
-		sessionStorage.removeItem("orderJSON");  
+		orderDelFunc(orderJsonGo.id);
+		sessionStorage.removeItem("orderJSON");
 	}
 	//未完成下拉列表显示隐藏
 	$(document).click(function(){

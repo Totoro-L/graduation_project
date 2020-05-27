@@ -36,7 +36,7 @@ function appointDataIn(val){
 					'<span>'+val.parkName+'</span>'+
 				'</li>'+
 				'<li id=\"del-navi\">距离：<span>'+val.navi+'km</span></li>'+
-				'<li id=\"del-price\">价格：<span>'+val.price+'元/h</span></li>'+
+				'<li id=\"del-price\">价格：<span>'+val.price+'元/时</span></li>'+
 				'<li id=\"can-begin\">可预约开始时间：<span>'+val.shareStart+'</span></li>'+
 				'<li id=\"can-end\">可预约结束时间：<span>'+val.shareOver+'</span></li>';
 	$(".del-read").html(content);
@@ -49,7 +49,10 @@ function orderGoData(val,kind){  //kind:0 未完成；1 已完成；2 已取消
 					'<div id=\"code\"></div>'+
 				'</li>';
 		var li2='<li id=\"del-price\">价格：'+
-					'<span>'+val.orderPrice+'</span>'+
+					'<span>'+val.orderPrice+'元/时</span>'+
+				'</li>'+
+				'<li id=\"del-getin\">入场时间：'+
+					'<span>'+val.getinTime+'</span>'+
 				'</li>';
 		var li3='<li id=\"del-btn1\">'+
 					'<button id=\"park-photo\" type=\"button\">车库平面图</button>'+
@@ -66,6 +69,12 @@ function orderGoData(val,kind){  //kind:0 未完成；1 已完成；2 已取消
 				'</li>';
 		var li2='<li id=\"del-price\">订单总价：'+
 					'<span>'+val.orderPrice+'</span>'+
+				'</li>'+
+				'<li id=\"del-getin\">入场时间：'+
+					'<span>'+val.getinTime+'</span>'+
+				'</li>'+
+				'<li id=\"del-getout\">出场时间：'+
+					'<span>'+val.getoutTime+'</span>'+
 				'</li>';
 		var li3='<li id=\"del-btn\">'+
 					'<button id=\"delete-order\" type=\"button\">删除订单</button>'
@@ -84,6 +93,9 @@ function orderGoData(val,kind){  //kind:0 未完成；1 已完成；2 已取消
 				'</li>';
 	}
 	var content = li1+
+				'<li id=\"del-id\">订单编号：'+
+					'<span>'+val.id+'</span>'+
+				'</li>'+
 				'<li id=\"del-commu\">小区名称：'+
 					'<span>'+val.villageAddress+'</span>'+
 				'</li>'+
@@ -176,11 +188,11 @@ function pOrderIn(val){
 	} 
 	else if(val.orderSta == 2){
 		var pname = '已完成';
-		var allDel = "";
+		var allDel = "下单时间："+val.orderTime;
 	} 
 	else if(val.orderSta == 3){
 		var pname = '已取消';
-		var allDel = "";
+		var allDel = "取消时间："+val.cancelTime;
 	} 
 	else if(val.orderSta == 4){
 		var pname = '已超时';

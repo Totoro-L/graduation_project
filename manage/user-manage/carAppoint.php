@@ -64,7 +64,7 @@
       }
   		
 	  }
-  	$json = json_encode($data);//把数据转换为JSON数据.
+  	$json = json_encode($data);
   	echo $json;
   }else{
    	echo "查询失败";

@@ -1,4 +1,5 @@
 <?php
+  // 预约生成订单
   include '../include/connect.php';
   header('Content-Type:text/html;charset=utf-8');
   session_start();
@@ -36,20 +37,25 @@
   $hand = mysqli_connect("$db_host","$db_user","$db_pwd")or die('数据库连接失败');
   mysqli_select_db($hand,"$db_name")or die('数据库无此库');
 
-
-  $sql = "INSERT INTO order_info (village_address, garage_name, park_name, order_time, prein_time, preout_time, carown_id,order_price)
-        VALUES ('$village_address', '$garage_name', '$park_name', '$order_time', '$prein_time', '$preout_time', '$carown_id','order_price')";
-  mysqli_query($hand,"UPDATE park_info SET park_sta='1'
-      WHERE id='$park_id'");
-  $result = mysqli_query($hand,$sql);
-
   $check_query = mysqli_query($hand, "select * from account_info where id='$carown_id' limit 1");
   $resss = mysqli_fetch_array($check_query);
+  $car_num = $resss["car_num"];
+
+  $sql = "INSERT INTO order_info (village_address, garage_name, park_name, order_time, prein_time, preout_time, carown_id,order_price,car_num)
+        VALUES ('$village_address', '$garage_name', '$park_name', '$order_time', '$prein_time', '$preout_time', '$carown_id','order_price','$car_num')";
+
+  
+  $result = mysqli_query($hand,$sql);
+  $id = mysqli_insert_id($hand);
+
+  mysqli_query($hand,"UPDATE park_info SET park_sta='1',prein_time='$prein_time',preout_time='$preout_time'
+      WHERE id='$park_id'");
+  
   //判断数据库是否插入成功
   if($result && $resss){
-        $order->id = $park_id;
+        $order->id = $id;
         $order->carownId = $carown_id;
-        $order->carNum = $resss["car_num"];
+        $order->carNum = $car_num;
         $order->villageAddress = $village_address;
         $order->garageName = $garage_name;
         $order->parkName = $park_name;

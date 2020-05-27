@@ -7,7 +7,8 @@
   $user_name = $_POST['userName'];
   $pass_word = $_POST['passWord'];
   $user_role = $_POST['userRole'];
-  $ret = "0";  $hand = mysqli_connect("$db_host","$db_user","$db_pwd")or die('数据库连接失败');
+  $ret = "0";  
+  $hand = mysqli_connect("$db_host","$db_user","$db_pwd")or die('数据库连接失败');
   mysqli_select_db($hand,"$db_name")or die('数据库无此库');
 
   $check_query = mysqli_query($hand, "select * from account_info where user_name='$user_name' and pass_word='$pass_word' limit 1");

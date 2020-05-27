@@ -126,8 +126,25 @@ $(document).ready(function(){
 			$("#user-del").hide();
 		});
 	});
-	//切换至业主模式！！！session没改
+	//切换至业主模式
 	$("#change-to").click(function(){
 		location.href = "http://www.park.com/templates/user-temp/ownerPark.html";
+		// 角色更改。。。。
+	});
+	//退出登录
+	$("#login-out").click(function(){
+		//销毁session
+	    $.ajax({
+	      cache: false,
+	      type: "GET",
+	      url : "../../manage/include/session.php",
+	      success: function(ret){
+	            alert("系统退出成功");
+	            location.href = "http://www.park.com/templates/login.html";
+	      },
+	      error:function(){
+	        alert("请求失败");
+	      }
+	    });
 	});
 });

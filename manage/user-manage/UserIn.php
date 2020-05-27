@@ -1,4 +1,5 @@
 <?php
+  // 车主添加车辆信息
   include '../include/connect.php';
   header('Content-Type:text/html;charset=utf-8');
 

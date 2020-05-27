@@ -1,4 +1,4 @@
-<!-- 车主预约 -->
+<!-- 业主车位 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,37 +20,18 @@
 	<div class="wrapper">
 		<h1>我的车位</h1>
 		<!-- 顶部选项 -->
-		<ul id="appoint-option1">
-			<!-- <li id="top-navi" value="navi">距离最近</li>
-			<li id="top-price" value="price">价格最低</li>
-			<li id="top-choose" value="choose"><img src="../../images/choose.png">筛选</li> -->
+		<ul id="park-option1">
 		</ul>
-		<!-- 右侧筛选框 -->
-		<div class="right-choose">
-			<div class="right-time">
-				<label>开始时间：</label>
-				<input id="begin-time" type="text" class="demo_datetime" />
-			</div>
-			<div class="right-time">
-				<label>结束时间：</label>
-				<input id="end-time" type="text" class="demo_datetime" />
-			</div>
-			<div id="right-btn">
-				<button id="right-btn1" type="button">重置</button>
-				<button id="right-btn2" type="button">确定</button>
-			</div>
-			
-		</div>
 		<!-- 车位列表 -->
-		<ul id="appoint-show1">
-			<!-- <p class="loading-p"><img class="loading-img" src="../../images/loading.gif"></p>
-			<p class="loading-txt">加载中，请稍后......</p> -->
+		<ul id="park-show1">
+			<p class="loading-p"><img class="loading-img" src="../../images/loading.gif"></p>
+			<p class="loading-txt">加载中，请稍后......</p>
 		</ul>
 		<div class="seat"></div>
 		<img id="add-park" src="../../images/add-park.png">
 		<!-- 底部导航 -->
-		<ul id="appoint-nav1">
-			<li id="appoint-btn">
+		<ul id="park-nav1">
+			<li id="park-btn">
 				<img src="../../images/park-active.png" class="nav1-img"><br>
 			车位</li>
 			<li id="order-btn">
@@ -60,24 +41,32 @@
 				<img src="../../images/user.png" class="nav1-img"><br>
 			我的</li>
 		</ul>
-		<!-- 订单详情 -->
-		<div class="model"></div>
-		<div id="appoint-del">
+		<!-- 上传车位 -->
+		<div id="park-del">
 			<img class="del-img" src="../../images/error.png">
-			<h2 class="del-title">预约详情</h2>
+			<h2 class="del-title">上传车位</h2>
 			<ul class="del-show">
-				<div class="del-read"></div>
-				<li id="del-begin">开始时间：
-					<input id="appoint-begin" type="text" class="demo_datetime" />
+				<li id="del-commu">小区地址：
+					<select id="commu-select">
+						<option selected = "selected" disabled="disabled">---请选择---</option>
+					</select>
 				</li>
-				<li id="del-end">结束时间：
-					<input id="appoint-end" type="text" class="demo_datetime" />
+				<li id="del-lots">车库地址：
+					<select id="lots-select">
+						<option selected = "selected" disabled="disabled">---请选择---</option>
+					</select>
+				</li>
+				<li id="del-park">车位名称：
+					<input id="del-park-up" type="text" placeholder="请输入车位名称" />
+				</li>
+				<li id="del-file">车位凭证文件：
+					<button id="del-file-up">上传凭证文件</button>
+					<input type="file" name="filePath" style="display:none" id="file-path"/>
 				</li>
 				<li id="del-btn">
-					<button id="appoint-click" type="button" value="confirm">确认下单</button>
+					<button id="del-btn-up" type="button">确认上传</button>
 				</li>
 			</ul>
-
 		</div>
 	</div>
 </body>

@@ -289,7 +289,7 @@ h1{
     right:0;
     bottom:0;
     background-color: rgba(0, 0, 0, 0.9);
-    /*display: none;*/
+    display: none;
     z-index: 101;
 }
 /*车库平面图*/
@@ -298,4 +298,30 @@ h1{
 	margin: 0 auto;
 	margin-top: 30%;
 	width: 80%;
+}
+/*取消订单确认*/
+.sure-del{
+	margin: 60% auto;
+	width: 70%;
+	height: 6em;
+	background-color: #ffffff;
+	color: #000000;
+}
+.sure-an{
+	height: 3em;
+	line-height: 3em;
+}
+.sure-btn{
+	height: 2em;
+	line-height: 2em;
+}
+#sure-back{
+	margin-right: 3em;
+}
+#sure-back,#sure-yes{
+	border: none;
+	border-radius: 0.5em;
+	padding: 0.5em 2em;
+	color: #ffffff;
+	background-color: #1389BC;
 }
