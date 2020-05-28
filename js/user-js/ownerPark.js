@@ -119,10 +119,44 @@ $(document).ready(function(){
 	$("#park-show1").on("click",".park-share",function(){
 		clearInterval(timer);
 		var chooseId = $(this).parent().attr("val");
-		
-		console.log(chooseId);
+		model(1);
+		$("#park-share-add").show();
+		$("#park-share-add").addClass("bottom-move");
 
+		$("#park-share-sure").click(function(){
+			// 时间判断 现在时间<共享开始时间<共享结束时间
+			var beginTime = stringToTime($("#share-begin").val());
+			var endTime = stringToTime($("#share-over").val());
+			var timeNow = new Date().getTime();
+			if(timeNow<beginTime && beginTime<endTime){
+				var userJSON = {
+					"id" : chooseId,
+					"shareStart" : $("#share-begin").val(),
+					"shareOver" : $("#share-over").val()
+				}
+				var url = "../../manage/user-manage/parkShare.php";
+				var returnJSON = ajaxJSON(url, userJSON);
+				if(returnJSON){
+					alert("车位共享成功！");
+					$('.model').click();
+					parkGet();
+					timer = setInterval(
+						function(){parkGet()}
+					,1000);
+				}
+			}
+			else{
+				alert("请选择正确的时间段（现在时间<共享开始时间<共享结束时间）");
+			}
+			
+		});
 	});
+	//模态
+	$('.model').click(function(){
+		model(0);
+		$("#park-share-add input").val('');
+		$('#park-share-add').hide();
+	})
 	//上传车位关闭
 	$(".del-img").click(function(){
 	    $("#park-del").hide();

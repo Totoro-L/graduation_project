@@ -33,11 +33,26 @@ function parkInUser(data){
 			'</li>';
 		}
 		else if(val.parkSta == 2){
+			var start = val.shareStart;
+			var end = val.shareOver;
+
+			var beginTime = stringToTime(val.shareStart);
+			var endTime = stringToTime(val.shareOver);
+			var timeNow = new Date().getTime();
+
+			if(timeNow > endTime){
+				start = "共享时间已过期，请重新选择！";
+				end = "共享时间已过期，请重新选择！";
+			}
+			else if(Number.isNaN(beginTime) || Number.isNaN(endTime)){
+				start = "还未共享，请选择共享时间！";
+				end = "还未共享，请选择共享时间";
+			}
 			con = '<li val=\"'+val.id+'\">'+
 				'<span class=\"park-sta\">未占用</span>'+
 				'<span class=\"park-name\">'+val.parkName+'</span>'+
-				'<span class=\"park-del1\">共享开始时间：'+val.shareStart+'</span>'+
-				'<span class=\"park-del2\">共享结束时间：'+val.shareOver+'</span>'+
+				'<span class=\"park-del1\">共享开始时间：'+start+'</span>'+
+				'<span class=\"park-del2\">共享结束时间：'+end+'</span>'+
 				'<span class=\"park-share\">选择时间</span>'+
 			'</li>';
 		}
