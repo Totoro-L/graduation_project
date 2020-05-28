@@ -29,7 +29,7 @@ $(document).ready(function(){
 	$(".property-box").click(function(){
 		userRole = propertyMode();
 	});
-	//移动端
+	//登录
 	$("#login-click").click(function(){
 		var regUser =/^[\da-zA-Z_\u4e00-\u9f5a]{4,10}$/;   //用户名，4-10位，中文、字母、数字和下划线组成
 		var regPass =/^\w{6,10}$/;  //密码，6-10位，字母、数字、下划线组成
@@ -59,8 +59,11 @@ $(document).ready(function(){
 				if(userRole == 2){
 					window.location.href = "http://www.park.com/templates/user-temp/carAppoint.html";
 				}
-				else{
+				else if(userRole == 1){
 					window.location.href = "http://www.park.com/templates/user-temp/ownerPark.html";
+				}
+				else{
+					window.location.href = "http://www.park.com/templates/property-temp/proPark.html";
 				}
 			}
 			else{

@@ -1,0 +1,126 @@
+/*物业车位管理*/
+html,body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+}
+ul{
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+/*顶部*/
+.pro-top{
+	width: 100%;
+	background-color: #1389BC;
+	color: #ffffff;
+	height: 4em;
+}
+.pro-top img{
+	width: 1.5em;
+	height: 1.5em;
+	margin-right: 0.5em;
+}
+h1{
+	font-size: 2em;
+	float: left;
+	margin: 0.3em 3em;
+}
+.right-user,.right-out{
+	float: right;
+}
+.right-user{
+	margin: 1.3em 20em;
+}
+.right-out{
+	margin: 1.3em -42em;
+}
+/*左侧导航*/
+#nav{
+	float: left;
+	width: 12em;
+	height: 35em;
+	background-color: #EFF7FF;
+	text-align: center;
+	padding-top: 2em;
+}
+#nav li{
+	height: 2.5em;
+	line-height: 2.5em;
+}
+#main-box{
+	float: right;
+}
+/*右侧主内容*/
+.main-title{
+	border-bottom: 1px solid #797979;
+	height: 2.5em;
+	width: 65em;
+	margin-right: 4em;
+}
+h2{
+	text-align: center;
+	width: 5em;
+	height: 1.5em;
+	line-height: 1.5em;
+	border-bottom: 5px solid #797979;
+}
+#pk{
+	text-align: center;
+	width: 65em;
+	margin-top: 2em;
+	border-collapse: collapse;
+  	border-spacing: 0px; 
+  	border: 1px solid #EAEAEA;
+}
+.th-div{
+	background-color: #015478;
+}
+#pk th{
+	color: #ffffff;
+	height: 2.2em;
+}
+#pk td{
+	height: 2em;
+}
+.td-do-del,.td-do-no{
+	color: #D32727;
+}
+.td-do-yes{
+	color: #478A56;
+	display: inline-block;
+	margin-right: 1em;
+}
+.td-down-a{
+	color: #1389BC;
+}
+/*页码*/
+.pk-bottom{
+	margin-top: 2em;
+}
+.pk-bottom-del,.page-choose{
+	display: inline-block;
+}
+.page-choose{
+	width: 83%;
+	text-align: right;
+}
+.pk-paging,.pk-pag{
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+}
+.pk-paging{
+	padding: 0.5em;
+}
+.pk-pag{
+	width: 2.1em;
+	height: 2.1em;
+}
+/*导航选中*/
+.active{
+	background-color: #ffffff;
+	border-right: 5px solid #1389BC;
+}
