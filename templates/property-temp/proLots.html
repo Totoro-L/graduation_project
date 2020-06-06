@@ -1,0 +1,162 @@
+<!-- 车库管理 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>物业管理系统</title>
+
+    <link type="text/css" rel="stylesheet" href="../../css/property-css/proLots.css"/>
+
+	<script type="text/javascript" src="../../js/utils/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../../js/property-js/proLots.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="pro-top">
+			<h1>私人车位共享系统</h1>
+			<div class="right-user">
+				<img src="../../images/user-active.png">
+				<span id="pro-name"></span>
+			</div>
+			<div class="right-out">
+				<img src="../../images/out.png">
+			</div>
+		</div>
+		<div class="pro-main">
+			<ul id="nav">
+				<li id="nav-property">小区管理</li>
+				<li id="nav-lots" class="active">车库管理</li>
+				<li id="nav-park">车位管理</li>
+				<li id="nav-order">订单管理</li>
+			</ul>
+			<div id="main-box">
+				<div class="main-title">
+					<h2>车库管理</h2>
+					<button id="add-lots">添加车库</button>
+				</div>
+				<table id="pk">
+					<tr class="th-div">
+						<th rowspan="2">序号</th>
+						<th rowspan="2">小区名称</th>
+						<th rowspan="2">车库名称</th>
+						<th colspan="2">详细地址</th>
+						<th rowspan="2">价格（元/时）</th>
+						<th rowspan="2">车库平面图</th>
+						<th rowspan="2">操作</th>
+					</tr>
+					<tr class="th-div">
+						<th>东经</th>
+						<th>北纬</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>重庆市-重庆市-南岸区-南山路173号静园小区</td>
+						<td>A区</td>
+						<td>116.397128</td>
+						<td>29.521680</td>
+						<td>3</td>
+						<td>
+							<a href="" class="td-down-a" id="down-lots-photo">查看</a>
+							<a href="" class="td-do-change" id="lots-photo-change">修改</a>
+						</td>
+						<td>
+							<a href="" class="td-do-change" id="lots-price-photo">修改价格</a>
+						</td>
+					</tr>
+				</table>
+				<!-- 页码 -->
+				<!-- <div class="pk-bottom">
+					<span class="pk-bottom-del">共0页,0条数据</span>
+					<div class="page-choose">
+						<button type="button" id="pk-first-page" class="pk-paging">首页</button>
+						<button type="button" id="pk-last-page" class="pk-paging">上一页</button>
+						<span class="pk-pag-div">
+							<input type="button" value="1" class="pk-pag"/>
+							<input type="button" value="2" class="pk-pag"/>
+							<input type="button" value="3" class="pk-pag"/>
+							<input type="button" value="4" class="pk-pag"/>
+							<input type="button" value="5" class="pk-pag"/>
+						</span>
+						<button type="button" id="pk-next-page" class="pk-paging">下一页</button>
+						<button type="button" id="pk-final-page" class="pk-paging">末页</button>
+					</div>
+				</div> -->
+				<!-- 添加车库 -->
+				<div class="add-lots-page">
+					<h3>添加车库</h3>
+					<ul class="add-lots-main">
+						<li id="lots-add-com">小区地址：
+							<select id="commu-select">
+								<option selected = "selected" disabled="disabled">---请选择---</option>
+							</select>
+						</li>
+						<li id="lots-add-name">车库名称：
+							<input type="text" id="lots-name-input" placeholder="请输入车库名称">
+						</li>
+						<li id="lots-add-address">详细地址：
+							<span class="btn-link" id="mapclick">点击坐标拾取</span>
+							<div class="form-group">
+							    <div class="input-latlon">
+							        <div class="input-group">
+							            <span class="input-group-addon">东经:</span>
+							            <input class="form-control" type="text" id="lon" disabled="disabled"/>
+							        </div>
+									<div class="input-group">
+							            <span class="input-group-addon">北纬:</span>
+							            <input class="form-control" type="text" id="lat" disabled="disabled"/>
+							        </div>
+							    </div>
+							</div>
+						</li>
+						<li id="lots-add-photo">车库平面图：
+							<button id="del-file-up">上传车库平面图</button>
+							<input type="file" name="filePath" style="display:none" id="file-path"/>
+						</li>
+						<li id="lots-add-price">停车价格：
+							<select id="lots-price-select">
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+							</select>
+							元/时
+						</li>
+					</ul>
+					<div id="lots-add-btn">
+						<button id="lots-back">返回</button>
+						<button id="lots-up">提交</button>
+					</div>
+				</div>
+				<!-- 地图 -->
+				<div id="mapModal">
+				    <div class="modal-content">
+				        <div class="modal-header">
+				        	<h4 class="modal-title">拖动位置标记设置坐标</h4>
+				            <span class="incorrect"></span>
+				        </div>
+				        <div class="modal-body">
+				        	<div id="search">
+								<input type="text" placeholder="&nbsp搜索小区地址" id="text">
+								<button id="btn-search">搜索</button>
+							</div>
+				            <div id="mapContainer" style="width:50em;min-height:25em;"></div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn-default" id="btn-yes">确定</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 模态 -->
+	<div class="model"></div>
+	<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=XPKBZ-PRTLD-A574B-PBIOL-SL2HF-DQFYO"></script>
+</body>
+</html>

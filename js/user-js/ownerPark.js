@@ -42,14 +42,19 @@ function mainPark(){
 		parkAdd(returnJSON,"#commu-select");
 
 		// 车库地址
-		$("#commu-select").click(function(){
+		function seletGar(){
 			var userJSON = {
 				"getsome" : 1,
 				"villageAddress" : $("#commu-select option:selected").text()
 			}
 			var url = "../../manage/user-manage/selectGet.php";
 			var returnJSON = ajaxJSON(url, userJSON);
+			console.log(returnJSON);
 			parkAdd(returnJSON,"#lots-select");
+		}
+		seletGar();	
+		$("#commu-select").change(function(){
+			seletGar();	
 		});
 
 		//上传车位凭证
@@ -112,6 +117,7 @@ function mainPark(){
 	,1000);
 }
 $(document).ready(function(){
+	bottomClickOwner();
 	mainPark();
 	//时间选择
 	timeCheck(3);

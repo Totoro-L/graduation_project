@@ -209,3 +209,46 @@ function bottomClick(){
         location.href = "http://www.park.com/templates/user-temp/carUser.html";
     });
 }
+// 业主底部导航
+function bottomClickOwner(){
+    $("#park-btn").click(function(){
+        location.href = "http://www.park.com/templates/user-temp/ownerPark.html";
+    });
+    $("#order-btn").click(function(){
+        location.href = "http://www.park.com/templates/user-temp/ownerOrder.html";
+    });
+    $("#user-btn").click(function(){
+        location.href = "http://www.park.com/templates/user-temp/ownerUser.html";
+    });
+}
+//物业左侧导航
+function bottomClickPro(){
+    $("#nav-property").click(function(){
+        location.href = "http://www.park.com/templates/property-temp/proCom.html";
+    });
+    $("#nav-lots").click(function(){
+        location.href = "http://www.park.com/templates/property-temp/proLots.html";
+    });
+    $("#nav-park").click(function(){
+        location.href = "http://www.park.com/templates/property-temp/proPark.html";
+    });
+    $("#nav-order").click(function(){
+        location.href = "http://www.park.com/templates/property-temp/proOrder.html";
+    });
+}
+// 小数位数保留   x:小数；digit:保留位数，不够补0
+function toFloat(x,digit)
+{
+    var f = parseFloat(x); 
+    f = Math.round(x*1000000)/1000000; 
+    var s = f.toString(); 
+    var rs = s.indexOf('.'); 
+    if (rs < 0) { 
+      rs = s.length; 
+      s += '.'; 
+    } 
+    while (s.length <= rs + digit) { 
+      s += '0'; 
+    } 
+    return s; 
+}

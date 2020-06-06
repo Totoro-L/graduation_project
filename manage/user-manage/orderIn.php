@@ -42,7 +42,7 @@
   $car_num = $resss["car_num"];
 
   $sql = "INSERT INTO order_info (village_address, garage_name, park_name, order_time, prein_time, preout_time, carown_id,order_price,car_num)
-        VALUES ('$village_address', '$garage_name', '$park_name', '$order_time', '$prein_time', '$preout_time', '$carown_id','order_price','$car_num')";
+        VALUES ('$village_address', '$garage_name', '$park_name', '$order_time', '$prein_time', '$preout_time', '$carown_id','$order_price','$car_num')";
 
   
   $result = mysqli_query($hand,$sql);

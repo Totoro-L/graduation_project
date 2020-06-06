@@ -1,9 +1,14 @@
 // 业主车位上传地址添加
 function parkAdd(val,getName){
 	$(getName).empty();
-	for(var i = 0; i < val.length; i++){
-        $(getName).append('<option>'+val[i].retname+'</option>');
-    };
+	if(val.length == 0){
+		$(getName).append('<option>'+'---请选择---'+'</option>');
+	}
+	else{
+		for(var i = 0; i < val.length; i++){
+    	    $(getName).append('<option>'+val[i].retname+'</option>');
+    	};
+	}
 }
 //业主车位列表显示  0为待审核，1为占用中，2为未占用，3为审核失败
 function parkInUser(data){
@@ -58,10 +63,4 @@ function parkInUser(data){
 		}
 		$("#park-show1").append(con);
 	});
-}
-//共享车位
-function parkShareUser(val){
-	$("#park-show1").empty();
-	var con = '';
-	
 }

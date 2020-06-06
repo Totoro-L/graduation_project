@@ -1,3 +1,4 @@
+//物业订单管理
 document.write("<script type='text/javascript' src='../../js/utils/commonFunction.js'></script>");
 document.write("<script type='text/javascript' src='../../js/utils/ajaxUse.js'></script>");
 document.write("<script type='text/javascript' src='../../js/utils/property.js'></script>");
@@ -39,10 +40,9 @@ function proParkInit(){
 }
 // 审核车位操作
 function checkPark(){
-    
+    clearInterval(timer);
     // 审核通过
     $("#pk").on("click",".td-do-yes",function(){
-        clearInterval(timer);
         var parkId = $(this).parent("td").parent("tr").attr("val");
         var parkJSON = {
             "id" : parkId,
@@ -57,7 +57,6 @@ function checkPark(){
     });
     //审核失败
     $("#pk").on("click",".td-do-no",function(){
-        clearInterval(timer);
         var parkId = $(this).parent("td").parent("tr").attr("val");
         var parkJSON = {
             "id" : parkId,
@@ -75,5 +74,4 @@ function checkPark(){
 $(document).ready(function(){
     proParkInit();
     checkPark();
-    bottomClickPro();
 });

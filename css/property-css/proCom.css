@@ -1,4 +1,4 @@
-/*物业车位管理*/
+/*物业小区管理*/
 html,body{
 	width: 100%;
 	height: 100%;
@@ -69,6 +69,18 @@ h2{
 	line-height: 1.5em;
 	border-bottom: 5px solid #797979;
 }
+/*添加小区按钮*/
+#add-com{
+	float: right;
+	margin-top: -4.5em;
+	background-color: #4B7902;
+	border: none;
+	color: #ffffff;
+	border-radius: 0.5em;
+	padding: 0.6em 2em;
+	cursor: pointer;
+}
+/*小区管理表格*/
 #pk{
 	text-align: center;
 	width: 65em;
@@ -87,19 +99,8 @@ h2{
 #pk td{
 	height: 2em;
 }
-.td-do-del,.td-do-no{
-	color: #D32727;
-}
-.td-do-yes{
-	color: #478A56;
-	display: inline-block;
-	margin-right: 1em;
-}
-.td-down-a{
-	color: #1389BC;
-}
 /*页码*/
-.pk-bottom{
+/*.pk-bottom{
 	margin-top: 2em;
 }
 .pk-bottom-del,.page-choose{
@@ -119,9 +120,70 @@ h2{
 .pk-pag{
 	width: 2.1em;
 	height: 2.1em;
-}
+}*/
+
 /*导航选中*/
 .active{
 	background-color: #ffffff;
 	border-right: 5px solid #1389BC;
+}
+/*模态*/
+.model{
+    background: black;
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 99;
+}
+/*添加小区*/
+.add-com-page{
+	position: fixed;
+	z-index: 100;
+	background-color: #ffffff;
+	top: 8em;
+	left: 20em;
+	width: 45em;
+	display: none;
+}
+h3{
+	width: 200px;
+	border-left: 5px solid #1389BC;
+	margin: 1em auto 0.5em 2em;
+	padding-left: 0.5em;
+}
+.add-com-main{
+	width: 40em;
+	margin: 0 auto;
+	border-top: 1px dashed #C2C1C1;
+}
+.add-com-main li{
+	margin: 2em;
+}
+.form-group{
+	margin-right: 1em;
+}
+.form-inline,#com-name-input{
+	margin-top: 0.5em;
+}
+#com-add-btn{
+	text-align: center;
+	margin: 40px auto 50px auto;
+}
+#com-add-btn button{
+	border: none;
+	color: #ffffff;
+	width: 6em;
+	height: 2em;
+	cursor: pointer;
+}
+#com-back{
+	background-color: #DB3838;
+	margin-right: 3em;
+}
+#com-up{
+	background-color: #1389BC;
 }

@@ -1,0 +1,111 @@
+/*业主我的*/
+html,body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+ul{
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+#user-choose li,#appoint-nav1 li{
+	border-top: 1px solid #656565;
+}
+/*上部分*/
+#account-infor{
+	border-bottom: 1px solid #656565;
+}
+.infor-icon{
+	width: 1.7em;
+	height: 1.7em;
+	display: inline-block;
+	margin-right: 0.5em;
+	vertical-align: middle;
+}
+ 
+.user-title img{
+	width: 8em;
+	height: 8em;
+	margin: 3em auto 2em 2em;
+	border-radius: 0.5em;
+}
+.user-name{
+	display: block;
+	position: relative;
+	left: 11em;
+	top: -8em;
+	font-weight: bold;
+}
+#user-choose{
+	margin-top: -2em;
+}
+#user-choose li{
+	width: 100%;
+	height: 3em;
+	line-height: 3em;
+	padding-left: 1em;
+}
+.right-rec{
+ 	width: 0.7em;
+ 	height: 0.7em;
+	border-top: 2px solid #867f7a;
+	border-right: 2px solid #867f7a;
+	transform: rotate(45deg);
+	margin-left: 85%;
+	margin-top: -2em;
+}
+
+/*底部按钮*/
+.bottom-btn{
+	margin-top: 3em;
+}
+.bottom-btn button{
+	padding: 0.7em 4em;
+	font-size: 1em;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 1em;
+	border-radius: 0.5em;
+	border:none;
+	color: #ffffff;
+}
+#change-to{
+	background-color: #1389BC;
+}
+#login-out{
+	background-color: #D81E1E;
+}
+/*底部导航*/
+#park-nav1{
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	border-top: 1px solid #656565;
+	text-align: center;
+}
+#park-nav1 li{
+	height: 4em;
+	flex: auto;
+	font-size: 0.8em;
+	padding-top: 0.5em;
+	padding-bottom: 0.1em;
+	/*text-align: center;*/
+}
+#order-btn, #park-btn{
+	background-color: #ffffff;
+}
+#user-btn{
+	background-color: #1389BC;
+	color: #ffffff;
+}
+.nav1-img{
+	width: 2.1em;
+	height: 2.1em;
+}

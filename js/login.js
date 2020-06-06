@@ -63,7 +63,7 @@ $(document).ready(function(){
 					window.location.href = "http://www.park.com/templates/user-temp/ownerPark.html";
 				}
 				else{
-					window.location.href = "http://www.park.com/templates/property-temp/proPark.html";
+					window.location.href = "http://www.park.com/templates/property-temp/proCom.html";
 				}
 			}
 			else{
