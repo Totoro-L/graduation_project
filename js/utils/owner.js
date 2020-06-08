@@ -51,7 +51,7 @@ function parkInUser(data){
 			}
 			else if(Number.isNaN(beginTime) || Number.isNaN(endTime)){
 				start = "还未共享，请选择共享时间！";
-				end = "还未共享，请选择共享时间";
+				end = "还未共享，请选择共享时间！";
 			}
 			con = '<li val=\"'+val.id+'\">'+
 				'<span class=\"park-sta\">未占用</span>'+

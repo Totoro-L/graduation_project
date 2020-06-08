@@ -58,8 +58,9 @@ function mainPark(){
 		});
 
 		//上传车位凭证
-		$("#del-file-up").click(function(){
+		$("#del-file-up").unbind("click").click(function(event){
 			$("#file-path").click();
+			event.stopPropagation();    //  阻止事件冒泡
 		});
 		$("#file-path").change(function(evet){
 			var path = $("#file-path").val();
@@ -74,10 +75,11 @@ function mainPark(){
 		        var txtFile = URL.createObjectURL(txtFile);
 				console.log(txtFile);
 			}
+			event.stopPropagation();    //  阻止事件冒泡
 		});
 
 		// 确认上传
-		$("#del-btn-up").click(function(){
+		$("#del-btn-up").one('click',function(){
 			var regFile = $("#file-path").val();
 			if($("#del-park-up").val() == ''){
 				alert('请输入车位名称');
@@ -129,10 +131,12 @@ $(document).ready(function(){
 		$("#park-share-add").show();
 		$("#park-share-add").addClass("bottom-move");
 
-		$("#park-share-sure").click(function(){
+		$("#park-share-sure").one("click",function(event){
+			
 			// 时间判断 现在时间<共享开始时间<共享结束时间
 			var beginTime = stringToTime($("#share-begin").val());
 			var endTime = stringToTime($("#share-over").val());
+			// console.log(beginTime+'#######'+endTime);
 			var timeNow = new Date().getTime();
 			if(timeNow<beginTime && beginTime<endTime){
 				var userJSON = {
@@ -154,7 +158,7 @@ $(document).ready(function(){
 			else{
 				alert("请选择正确的时间段（现在时间<共享开始时间<共享结束时间）");
 			}
-			
+			event.stopPropagation();    //  阻止事件冒泡
 		});
 	});
 	//模态
