@@ -31,6 +31,10 @@ var timer = null;
 function mainPark(){
 	// 车位上传
 	$("#add-park").click(function(){
+		$("#del-park-up").val('');
+		$("#commu-select").html('<option selected = \"selected\" disabled=\"disabled\">---请选择---</option>');
+	    $("#lots-select").html('<option selected = \"selected\" disabled=\"disabled\">---请选择---</option>');
+	    $("#file-path").val('');
 		clearInterval(timer);
 		$("#park-del").show();
 		// 小区地址
@@ -79,7 +83,7 @@ function mainPark(){
 		});
 
 		// 确认上传
-		$("#del-btn-up").one('click',function(){
+		$("#del-btn-up").bind('click',function(){
 			var regFile = $("#file-path").val();
 			if($("#del-park-up").val() == ''){
 				alert('请输入车位名称');
@@ -125,13 +129,14 @@ $(document).ready(function(){
 	timeCheck(3);
 	//共享车位
 	$("#park-show1").on("click",".park-share",function(){
+
 		clearInterval(timer);
 		var chooseId = $(this).parent().attr("val");
 		model(1);
 		$("#park-share-add").show();
 		$("#park-share-add").addClass("bottom-move");
 
-		$("#park-share-sure").one("click",function(event){
+		$("#park-share-sure").bind("click",function(event){
 			
 			// 时间判断 现在时间<共享开始时间<共享结束时间
 			var beginTime = stringToTime($("#share-begin").val());
@@ -158,7 +163,7 @@ $(document).ready(function(){
 			else{
 				alert("请选择正确的时间段（现在时间<共享开始时间<共享结束时间）");
 			}
-			event.stopPropagation();    //  阻止事件冒泡
+			
 		});
 	});
 	//模态
@@ -170,11 +175,6 @@ $(document).ready(function(){
 	//上传车位关闭
 	$(".del-img").click(function(){
 	    $("#park-del").hide();
-	    $("#del-park-up").val('');
-	    $("#commu-select").html('<option selected = \"selected\" disabled=\"disabled\">---请选择---</option>');
-	    $("#lots-select").html('<option selected = \"selected\" disabled=\"disabled\">---请选择---</option>');
-	    $("#file-path").val('');
-	    
 	    clearInterval(timer);
 		parkGet();
 		timer = setInterval(

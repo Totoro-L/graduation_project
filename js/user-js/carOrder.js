@@ -9,6 +9,41 @@ function toActive(item){
     $(".order-drop-down").removeClass("active");
     $(item).addClass("active");
 }
+
+// +++++++++++
+	// 自动取消订单(未入场订单距离预约出场时间10分钟自动取消)  time = '2015-03-05 17:59:00'
+function cancelOrder(time,orderID){
+	var outTime = stringToTime(time);
+	var now = new Date;
+    now.setMinutes (now.getMinutes () + 10);
+	var nowTime = now.getTime();
+	if(outTime <= nowTime){
+		var orderJSON = {
+			"id" : orderID,
+			"act" : 1
+		}
+		var url = "../../manage/user-manage/carOrderCheck.php";
+		var returnJSON = ajaxJSON(url, orderJSON);
+		console.log('自动取消订单：'+orderID);
+	}
+}
+	// 自动判定超时
+function overtimeOrder(time,orderID){
+	var outTime = stringToTime(time);
+	var now = new Date;
+	var nowTime = now.getTime();
+	if(outTime < nowTime){
+		var orderJSON = {
+			"id" : orderID,
+			"method" : 'overtime'
+		}
+		var url = "../../manage/update.php";
+		var returnJSON = ajaxJSON(url, orderJSON);
+		console.log('订单：'+orderID+'超时');
+	}
+}
+// +++++++++++
+
 //页面数据获取轮询 act:0 全部；1 其他；2 订单详情
 function orderGetData(act,stat){
 	var arr = ['未入场','未出场','已完成','已取消','已超时'];
@@ -24,6 +59,20 @@ function orderGetData(act,stat){
         success : function(result) {
             result = JSON.stringify(result);
             var dataJSON = JSON.parse(result);
+
+            // +++++++++++
+            // 实时判断订单及车位状态
+            $.each(dataJSON,function(index,val){
+            	if(val.orderSta == 0){
+					cancelOrder(val.preoutTime,val.id);   // 取消订单
+            	
+            	}
+            	else if(val.orderSta == 1){
+            		overtimeOrder(val.preoutTime,val.id);   //超时订单
+            	}
+			});
+            // +++++++++++
+
             $("#order-show").empty();
             //订单详情
             if(act == 2){

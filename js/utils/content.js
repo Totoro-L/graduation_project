@@ -105,10 +105,10 @@ function orderGoData(val,kind){  //kind:0 未完成；1 已完成；2 已取消
 				'<li id=\"del-park\">车位名称：'+
 					'<span>'+val.parkName+'</span>'+
 				'</li>'+li2+
-				'<li id=\"del-begin\">开始时间：'+
+				'<li id=\"del-begin\">订单开始时间：'+
 					'<span>'+val.preinTime+'</span>'+
 				'</li>'+
-				'<li id=\"del-end\">结束时间：'+
+				'<li id=\"del-end\">订单结束时间：'+
 					'<span>'+val.preoutTime+'</span>'+
 				'</li>'+
 				'<li id=\"del-in\">下单时间：'+

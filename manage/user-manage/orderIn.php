@@ -48,7 +48,7 @@
   $result = mysqli_query($hand,$sql);
   $id = mysqli_insert_id($hand);
 
-  mysqli_query($hand,"UPDATE park_info SET park_sta='1',prein_time='$prein_time',preout_time='$preout_time'
+  mysqli_query($hand,"UPDATE park_info SET prein_time='$prein_time',preout_time='$preout_time',park_sta='1'
       WHERE id='$park_id'");
   
   //判断数据库是否插入成功
