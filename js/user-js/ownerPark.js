@@ -135,7 +135,7 @@ $(document).ready(function(){
 		model(1);
 		$("#park-share-add").show();
 		$("#park-share-add").addClass("bottom-move");
-
+		
 		$("#park-share-sure").bind("click",function(event){
 			
 			// 时间判断 现在时间<共享开始时间<共享结束时间
